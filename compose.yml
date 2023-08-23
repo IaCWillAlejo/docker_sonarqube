@@ -28,8 +28,12 @@ services:
     volumes:
       - postgresql:/var/lib/postgresql
       - postgresql_data:/var/lib/postgresql/data
+    restart: on-failure
     networks:
       - sonarqube
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
 networks:
   sonarqube:
     name: sonarqube
